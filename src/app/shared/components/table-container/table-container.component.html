@@ -1,0 +1,83 @@
+<div class="table-container__wrapper">
+    <div class="table-container__buttons">
+        <icon-button
+                iconName="add_box"
+                *ngIf="hasAddBtn"
+                [isDisabled]="isSelectedRows()"
+                (click)="onAddNewRowButtonClick()"
+        />
+
+        <icon-button
+                iconName="delete"
+                *ngIf="hasDeleteBtn"
+                [isDisabled]="!isSelectedRows()"
+                (click)="onDeleteRowButtonClick()"
+        />
+    </div>
+
+    <div class="table-container__container">
+        <table class="table-container__table"
+               mat-table
+               matSort
+               [tableDataController]="rows"
+        >
+            <ng-container *ngFor="let column of columns; index as i">
+                <ng-container [ngSwitch]="column">
+
+                    <ng-container *ngSwitchCase="'select'" matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef class="checkbox">
+                            <mat-checkbox (change)="toggleAllRows()"
+                                          [checked]="selection.hasValue() && isAllRowsSelected()"
+                                          [indeterminate]="selection.hasValue() && !isAllRowsSelected()"
+                            />
+                        </th>
+                        <td mat-cell *matCellDef="let row" class="checkbox">
+                            <mat-checkbox (click)="$event.stopPropagation()"
+                                          (change)="selection.toggle(row)"
+                                          [checked]="selection.isSelected(row)"
+                            />
+                        </td>
+                    </ng-container>
+
+                    <ng-container *ngSwitchDefault
+                                  [matColumnDef]="column"
+                    >
+                        <th mat-header-cell
+                            class="no-sort-arrow"
+                            *matHeaderCellDef
+                            mat-sort-header
+                        >
+                            <ng-container
+                                    *ngTemplateOutlet="headerCell; context: { $implicit: column, index: i }">
+                            </ng-container>
+                        </th>
+
+                        <td mat-cell
+                            class="table-container__element"
+                            *matCellDef="let element"
+                            (click)="onRowClick(element)"
+                        >
+                            <ng-container
+                                    *ngTemplateOutlet="rowCell; context: { $implicit: element[column], index: i }">
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                </ng-container>
+            </ng-container>
+
+            <tr mat-header-row
+                class="table-container__header-row"
+                *matHeaderRowDef="columns; sticky: true">
+            </tr>
+
+            <tr mat-row
+                class="table-container__row"
+                *matRowDef="let row; columns: columns"
+                [class.row-checked]="selection.isSelected(row)">
+            </tr>
+        </table>
+    </div>
+
+</div>
+

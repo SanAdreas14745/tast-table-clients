@@ -1,0 +1,56 @@
+@use 'variables';
+@use 'mixins/typography.mixin';
+@use 'mixins/button.mixin';
+
+::ng-deep.mat-mdc-dialog-container {
+  --mdc-dialog-container-shape: 20px;
+}
+
+.client-dialog {
+  width: 449px;
+
+  &__container {
+    padding: 44px 40px;
+  }
+
+  &__title {
+    display: flex;
+    padding: 0;
+    user-select: none;
+    color: variables.$color-text-3;
+    @include typography.typography-text-xl;
+  }
+
+  &__content {
+    padding: 0;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 1px;
+    gap: 20px;
+  }
+
+  &__actions {
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__button {
+    &_cancel {
+      width: 109px;
+      @include button.button-color-silver;
+      @include button.button-size;
+      @include typography.typography-text-l;
+    }
+
+    &_save {
+      width: 134px;
+      @include button.button-color-primary;
+      @include button.button-size;
+      @include typography.typography-text-l;
+    }
+  }
+}

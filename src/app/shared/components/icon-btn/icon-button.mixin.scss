@@ -1,0 +1,31 @@
+$color-button: (
+        color-default: #304879,
+        color-disable: #A8B0BF,
+        background-default: none,
+        background-hover: #E2EEFF,
+        background-active: #B5D3FF
+);
+
+@mixin icon-button-color {
+  color: map-get($color-button, color-default);
+  background: map-get($color-button, background-default);
+
+  &:hover {
+    background: map-get($color-button, background-hover);
+  }
+  &:active {
+    background: map-get($color-button, background-active);
+  }
+  &:disabled {
+    color: map-get($color-button, color-disable);
+  }
+}
+
+@mixin icon-button-size($size) {
+  --mdc-icon-button-state-layer-size: #{$size};
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+

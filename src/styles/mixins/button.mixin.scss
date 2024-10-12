@@ -1,0 +1,50 @@
+@use "variables";
+@use "mixins/typography.mixin";
+
+$button-height: 53px;
+$button-border-radius: 37px;
+$color-button-primary: (
+        color-default: #FFFFFF,
+        background-default: #2F67D5,
+        background-hover: #3C7CF8,
+        background-active: #194EB6,
+        background-disabled: #D8DEE9
+);
+$color-button-silver: (
+        color-default: #2F67D5,
+        background-default: none,
+        background-hover: rgba(60, 124, 248, 0.1),
+        background-active: rgba(25, 78, 182, 0.2)
+);
+
+@mixin button-color-primary {
+  color: map-get($color-button-primary, color-default) !important;
+  background: map-get($color-button-primary, background-default) !important;
+
+  &:hover {
+    background: map-get($color-button-primary, background-hover) !important;
+  }
+  &:active {
+    background: map-get($color-button-primary, background-active) !important;
+  }
+  &:disabled {
+    background: map-get($color-button-primary, background-disabled) !important;
+  }
+}
+
+@mixin button-color-silver {
+  color: map-get($color-button-silver, color-default) !important;
+  background: map-get($color-button-silver, background-default) !important;
+
+  &:hover {
+    background: map-get($color-button-silver, background-hover) !important;
+  }
+  &:active {
+    background: map-get($color-button-silver, background-active) !important;
+  }
+}
+
+@mixin button-size {
+  height: $button-height;
+  border-radius: $button-border-radius;
+}

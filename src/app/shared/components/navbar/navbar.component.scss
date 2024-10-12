@@ -1,0 +1,15 @@
+@use "variables";
+@use "mixins/typography.mixin";
+
+.navbar {
+  height: variables.$header-height;
+  padding: 0;
+  background: variables.$background-primary;
+
+  &__link {
+    margin-left: 12px;
+    @include typography.typography-text-xxl;
+    color: variables.$color-text-5;
+    text-decoration: none;
+  }
+}

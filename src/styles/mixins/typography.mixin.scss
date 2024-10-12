@@ -1,0 +1,49 @@
+$font-sizes: (
+        xs: 12px,
+        s: 14px,
+        m: 16px,
+        l: 18px,
+        xl: 24px,
+        xxl: 28px
+);
+
+@mixin typography-text-xs {
+  font-size: map-get($font-sizes, 'xs');
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+}
+
+@mixin typography-text-s {
+  font-size: map-get($font-sizes, 's');
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.25px;
+}
+
+@mixin typography-text-m {
+  font-size: map-get($font-sizes, 'm');
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+}
+
+@mixin typography-text-l {
+  font-size: map-get($font-sizes, 'l');
+  font-weight: 400;
+  line-height: 21.09px;
+}
+ 
+@mixin typography-text-xl {
+  font-size: map-get($font-sizes, 'xl');
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+}
+
+@mixin typography-text-xxl {
+  font-size: map-get($font-sizes, 'xxl');
+  font-weight: 500;
+  line-height: 32.81px;
+  letter-spacing: 0.15px;
+}

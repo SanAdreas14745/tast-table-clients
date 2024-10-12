@@ -1,0 +1,37 @@
+{
+  "button": {
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "delete": "Удалить"
+  },
+  "navbar": {
+    "link": {
+      "clients": "Клиенты"
+    }
+  },
+  "text_input": {
+    "error": {
+      "required": "Обязательное поле",
+      "min_length": {
+        "acceptable_no_less": "Допустимо не менее",
+        "symbols": "символов"
+      },
+      "max_length": {
+        "acceptable_no_more": "Допустимо не более",
+        "symbols": "символов"
+      },
+      "pattern": "Недопустимые символы",
+      "email": "Пожалуйста, введите действительный адрес"
+    }
+  },
+  "clients": {
+    "add_client": "Новый клиент",
+    "edit_client": "Редактирование",
+    "delete_clients": "Удаление строк",
+    "delete_content": "Удалить выбранные строки",
+    "name": "Имя",
+    "surname": "Фамилия",
+    "email": "E-mail",
+    "phone": "Телефон"
+  }
+}

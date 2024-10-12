@@ -1,0 +1,72 @@
+@use 'variables';
+@use 'mixins/checkbox.mixin';
+@use 'mixins/scrollbar.mixin';
+
+@include scrollbar.custom-scrollbar;
+
+:host {
+  --row-height: 47px;
+}
+
+::ng-deep {
+  &.mat-sort-header-content {
+    width: 100%;
+  }
+
+  &.no-sort-arrow .mat-sort-header-arrow {
+    display: none;
+  }
+}
+
+.table-container {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: variables.$background-secondary;
+  }
+
+  &__buttons {
+    height: var(--row-height);
+    padding: 0 5px;
+    align-content: center;
+  }
+
+  &__container {
+    height: 100%;
+    overflow: auto;
+  }
+
+  &__table {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__header-row {
+    height: var(--row-height);
+    user-select: none;
+    cursor: pointer;
+    background: variables.$background-secondary;
+  }
+
+  &__row {
+    height: var(--row-height);
+
+    &.row-checked {
+      background: #{variables.$background-tertiary};
+    }
+
+    &:hover {
+      background: #{variables.$background-quaternary};
+    }
+  }
+}
+
+.checkbox {
+  padding: 0 0 0 3px;
+  width: 40px;
+  @include checkbox.checkbox-color;
+}

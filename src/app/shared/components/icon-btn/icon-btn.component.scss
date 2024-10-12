@@ -1,0 +1,7 @@
+@use 'icon-button.mixin';
+
+.icon-button {
+  @include icon-button.icon-button-color;
+  @include icon-button.icon-button-size(36px);
+}
+

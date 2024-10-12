@@ -1,0 +1,46 @@
+@use "variables";
+
+$color-input-field: (
+        default: #BBC5C9,
+        active: #2F7FD5,
+        filled: #505662,
+        error: #DA1B1B
+);
+
+@mixin input-field {
+  width: 100%;
+  --mdc-outlined-text-field-label-text-color: #{map-get($color-input-field, default)};
+  --mdc-outlined-text-field-outline-color: #{map-get($color-input-field, default)};
+  --mdc-filled-text-field-disabled-input-text-color: #{map-get($color-input-field, default)};
+
+  --mdc-outlined-text-field-focus-label-text-color: #{map-get($color-input-field, active)};
+  --mdc-outlined-text-field-focus-outline-color: #{map-get($color-input-field, active)};
+  --mdc-outlined-text-field-input-text-color: #{variables.$color-text-4};
+
+  --mdc-theme-error: #{map-get($color-input-field, error)};
+  --mdc-filled-text-field-error-label-text-color: #{map-get($color-input-field, error)};
+  --mdc-filled-text-field-error-active-indicator-color: #{map-get($color-input-field, error)};
+  --mdc-outlined-text-field-error-label-text-color: #{map-get($color-input-field, error)};
+  --mdc-outlined-text-field-error-outline-color: #{map-get($color-input-field, error)};
+
+  .mat-mdc-form-field-error {
+    text-align: end;
+  }
+}
+
+::ng-deep {
+  .mat-mdc-form-field-type-mat-input {
+    &.ng-touched {
+      .mdc-notched-outline {
+        &__notch,
+        &__leading,
+        &__trailing {
+          --mdc-outlined-text-field-outline-color: #{map-get($color-input-field, filled)};
+          --mdc-outlined-text-field-label-text-color: #{map-get($color-input-field, filled)};
+          --mdc-outlined-text-field-outline-width: 1.5px;
+          --mdc-outlined-text-field-label-text-weight: 500;
+        }
+      }
+    }
+  }
+}
