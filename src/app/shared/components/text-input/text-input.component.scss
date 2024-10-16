@@ -1,6 +1,0 @@
-@use 'variables';
-@use 'mixins/input-field.mixin';
-
-.text-input {
-  @include input-field.input-field;
-}
